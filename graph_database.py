@@ -1,9 +1,6 @@
 from py2neo import Graph
 from logger import Logger
-from dotenv import load_dotenv
 import os
-
-load_dotenv()
 
 
 DB_URL = os.getenv("DB_URL")
