@@ -2,3 +2,5 @@
 *.pkl
 __pycache__
 .mypy_cache
+data
+logs
