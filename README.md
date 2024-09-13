@@ -175,7 +175,7 @@ The log level can be configured dynamically at runtime using the `LOG_LEVEL` env
 
 - `openai`: For interacting with OpenAI's GPT models.
 - `dotenv`: For loading environment variables from a `.env` file.
-- `py2neo`: For interacting with the Neo4j graph database.
+- `neo4j`: For interacting with the Neo4j graph database.
 - `pickle`: For saving and loading processed data.
 - `logging`: For tracking the workflow progress across the application.
 

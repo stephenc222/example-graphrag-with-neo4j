@@ -5,6 +5,7 @@ import os
 import pickle
 
 from document_processor import DocumentProcessor
+from graph_database import GraphDatabaseConnection
 from graph_manager import GraphManager
 from logger import Logger
 from query_handler import QueryHandler
@@ -12,6 +13,9 @@ from query_handler import QueryHandler
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DB_URL = os.getenv("DB_URL")
+DB_USERNAME = os.getenv("DB_USERNAME")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 MODEL = "gpt-4o-2024-08-06"
 
 # Initialize OpenAI client
@@ -20,8 +24,12 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # Initialize document processor
 document_processor = DocumentProcessor(client, MODEL)
 
+# Initialize database connection
+db_connection = GraphDatabaseConnection(
+    uri=DB_URL, user=DB_USERNAME, password=DB_PASSWORD)
+
 # Initialize graph manager
-graph_manager = GraphManager()
+graph_manager = GraphManager(db_connection)
 
 # Initialize query handler
 query_handler = QueryHandler(graph_manager, client, MODEL)
